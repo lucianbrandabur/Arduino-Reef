@@ -1,0 +1,7 @@
+Version:
+        1.0     Jan 30 2011  - initial release
+        1.1     Jan 31 2011  - Added option to set SPI speed, and increased the default speed
+        2.0     Feb 12 2011  - Added support for reading and writing text-files, in addition to a few support-functions
+        2.01    Mar 27 2011  - Updated some of the examples to be compatible with ITDB02_Graph(16) v4.0
+        2.02    Apr 19 2011  - Moved the ITDB02_Integration examples to the ITDB02_tinyFAT and ITDB02_tinyFAT16 libraries
+        2.1     Apr 26 2011  - Added setSSpin() function

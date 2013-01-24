@@ -1,0 +1,20 @@
+Version:
+	2.0	15 Aug 2010  -  initial release
+	2.1	30 Sep 2010  -  Added Arduino Mega compatibility.
+				Fixed a bug with CENTER and RIGHT in LANDSCAPE mode.
+				Fixed a bug in printNumI and printNumF when the number to be printed was 0.
+	2.2	14 Oct 2010  -  Added support for ITDB02-3.2WC
+				Added drawBitmap() with its associated tool
+	2.3	24 Nov 2010  -  Added Arduino Mega2560 compatibility
+				Added support for rotating text and bitmaps
+	2.4	18 Jan 2011  -  Fixed an error in the requirements
+	2.5	30 Jan 2011  -  Added loadBitmap()
+				Optimized drawBitmap() when not using rotation
+	2.6	04 Mar 2011  -  Fixed a bug in printNumF when the number to be printed was (-)0.something
+	3.0	19 Mar 2011  -  General optimization
+	3.01	20 Mar 2011  -  Reduced memory footprint slightly
+	4.0	27 Mar 2011  -  Remade the font-system to make it more flexible
+	4.1	19 Apr 2011  -  Remade the tinyFAT integration. Moved loadBitmap to the ITDB02_tinyFAT16 library
+	4.2	22 Aug 2011  -  Added support for more displaymodules
+
+  (*) Initial release is v2.0 to keep it in sync with the 8bit library.

@@ -1,0 +1,53 @@
+PCF8575 Library for Arduino
+Author:  SkyWodd
+Contact: skywodd@gmail.com
+
+Current version
+1.2 2011-07-25: Switch branch from PCF8574 to PCF8575
+
+History
+1.1 2011-04-21: Add interruption support and pull-up resistor
+1.0 2011-04-21: Initial Release 
+
+Description
+PCF8575 is a I2C I/O expander that free your µc pin by controlling it over I2C.
+The PCF8575 is directly powered by 5v from arduino and let you control 16 I/O.
+This library has the same function like normal digital pin except interrupt possibility.
+
+Download, install and import
+
+Download zip 
+Put the PCF8575 folder in "hardware\libraries\". 
+In the Arduino IDE, create a new sketch (or open one) and 
+select from the menubar "Sketch->Import Library->PCF8575".
+Once the library is imported, an "#incude <PCF8575.h>" line will appear at the top of your sketch. 
+
+Creation
+ PCF8575() -> Create instance of PCF8574 controler.
+ 
+Methods
+void begin(int SADR) -> Start control of PCF8575 at SADR slave address.
+void pullUp(int pin) -> Enable pull-up resistor on pin (for any input and output) should be used for hardware pull-up too (or the PCF8574 will force to low).
+void pullDown(int pin) -> Enable pull-down resistor on pin (for any input and output) usefull for cmos logic control.
+void pinMode(int pin, int mode) -> Setup an pin as input or output.
+void digitalWrite(int pin,int value) -> Write logic level on a valid output pin.
+int digitalRead(int pin) -> Read logic level from any pin (as input or output).
+void write(int value) -> Write raw data to output (only) pin (input pin will not be affected).
+int read() -> Read raw data from PCF8575 (input and output).
+void clear() -> Set all ouput pin to low.
+void set() -> Set all ouput pin to high.
+void toggle(int pin) -> Toggle logic level of a pin.
+void blink(int pin,int time,int wait) -> Blink a pin, x time with wait delay before each change.
+void enableInterrupt(int pin,void(* selfCheckFunction)(void)) -> allow usage of interruption by attach pin (any digital or analog) to selfCheckfunction(user created function must be a wrapper to checkForInterrupt() )
+void disableInterrupt() -> detach interrupt handler from previous set up interrupt pin.
+void attachInterrupt(int pin,void (*userFunc)(void),int mode) -> attach an userfunction to pin and call it when correct mode is triggered.
+void detachInterrupt(int pin) -> detach userFunction from pin previously set up and stop interrupt handler on this pin
+void checkForInterrupt() -> this sub routine MUST be call from a user defined function who act as a wrapper from namespace PCF8574:: to global namespace for PCattachInterrupt.
+		
+Example
+ButtonBlink -> Test all possible function on three led (output) and one button (input) with serial echo.
+
+FAQ
+How can I use multiple PCF8574 object ?
+PCF8575 is a class, like any class you can drive any numbers of chip you want with only 3 single pin (A4 and A5 = I2C bus and INT (optionnal)) for each but by setting different address for each.
+Note: The INT pin can be the same for all PCF8575 and can be attach to any digital or analog pin. 
